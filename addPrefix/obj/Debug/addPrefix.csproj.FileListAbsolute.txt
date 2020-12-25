@@ -1,0 +1,10 @@
+C:\Users\Professional\source\repos\addPrefix\addPrefix\bin\Debug\addPrefix.exe.config
+C:\Users\Professional\source\repos\addPrefix\addPrefix\bin\Debug\addPrefix.exe
+C:\Users\Professional\source\repos\addPrefix\addPrefix\bin\Debug\addPrefix.pdb
+C:\Users\Professional\source\repos\addPrefix\addPrefix\obj\Debug\addPrefix.csprojAssemblyReference.cache
+C:\Users\Professional\source\repos\addPrefix\addPrefix\obj\Debug\addPrefix.Form1.resources
+C:\Users\Professional\source\repos\addPrefix\addPrefix\obj\Debug\addPrefix.Properties.Resources.resources
+C:\Users\Professional\source\repos\addPrefix\addPrefix\obj\Debug\addPrefix.csproj.GenerateResource.cache
+C:\Users\Professional\source\repos\addPrefix\addPrefix\obj\Debug\addPrefix.csproj.CoreCompileInputs.cache
+C:\Users\Professional\source\repos\addPrefix\addPrefix\obj\Debug\addPrefix.exe
+C:\Users\Professional\source\repos\addPrefix\addPrefix\obj\Debug\addPrefix.pdb
