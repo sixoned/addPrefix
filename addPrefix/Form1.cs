@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
@@ -14,6 +7,24 @@ namespace addPrefix
    
     public partial class Form1 : Form
     {
+        public void checkPrefix(string str) {
+            if (str.Contains("\\") | str.Contains("/") |
+                str.Contains(":") | str.Contains("*") |
+                str.Contains("?") | str.Contains(":") |
+                str.Contains(Convert.ToString('"')) |
+                str.Contains("<") | str.Contains(">") |
+                str.Contains("|") | str.Contains("+"))
+            {
+                directoryLabel.Text = "НЕДОПУСТИМЫЙ СИМВОЛ ПРЕФИКСА!";             
+                AddPrefBtn.Enabled = false;
+                canselPrefixBtn.Enabled = false;
+            }
+            else {
+                directoryLabel.Text = fbd.SelectedPath;
+                AddPrefBtn.Enabled = true;
+                canselPrefixBtn.Enabled = true;
+            }
+        }
         void refreshListView() {
 
 
@@ -48,6 +59,11 @@ namespace addPrefix
             }
             foldreListView.Items.Clear();
             refreshListView();
+        }
+
+        private void prefixTextBox_TextChanged(object sender, EventArgs e)
+        {
+            checkPrefix(prefixTextBox.Text);
         }
 
         private void folderBtn_Click(object sender, EventArgs e)

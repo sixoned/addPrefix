@@ -31,13 +31,13 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.foldreListView = new System.Windows.Forms.ListView();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.directoryLabel = new System.Windows.Forms.Label();
             this.folderBtn = new System.Windows.Forms.Button();
             this.AddPrefBtn = new System.Windows.Forms.Button();
             this.prefixTextBox = new System.Windows.Forms.TextBox();
             this.fbd = new System.Windows.Forms.FolderBrowserDialog();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.canselPrefixBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -50,7 +50,13 @@
             this.foldreListView.SmallImageList = this.imageList1;
             this.foldreListView.TabIndex = 0;
             this.foldreListView.UseCompatibleStateImageBehavior = false;
-            this.foldreListView.View = System.Windows.Forms.View.SmallIcon;
+            this.foldreListView.View = System.Windows.Forms.View.List;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "10.png");
             // 
             // directoryLabel
             // 
@@ -89,16 +95,11 @@
             this.prefixTextBox.Name = "prefixTextBox";
             this.prefixTextBox.Size = new System.Drawing.Size(91, 20);
             this.prefixTextBox.TabIndex = 4;
+            this.prefixTextBox.TextChanged += new System.EventHandler(this.prefixTextBox_TextChanged);
             // 
             // fbd
             // 
             this.fbd.RootFolder = System.Environment.SpecialFolder.MyComputer;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "10.png");
             // 
             // canselPrefixBtn
             // 
