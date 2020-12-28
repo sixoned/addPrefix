@@ -39,6 +39,10 @@
             this.fbd = new System.Windows.Forms.FolderBrowserDialog();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.canselPrefixBtn = new System.Windows.Forms.Button();
+            this.smallIconsPicture = new System.Windows.Forms.PictureBox();
+            this.listPicture = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.smallIconsPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // foldreListView
@@ -57,6 +61,8 @@
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "10.png");
+            this.imageList1.Images.SetKeyName(1, "List-PNG-Clipart.png");
+            this.imageList1.Images.SetKeyName(2, "smallicons.png");
             // 
             // directoryLabel
             // 
@@ -113,11 +119,33 @@
             this.canselPrefixBtn.UseVisualStyleBackColor = true;
             this.canselPrefixBtn.Click += new System.EventHandler(this.canselPrefixBtn_Click);
             // 
+            // smallIconsPicture
+            // 
+            this.smallIconsPicture.Image = ((System.Drawing.Image)(resources.GetObject("smallIconsPicture.Image")));
+            this.smallIconsPicture.Location = new System.Drawing.Point(179, 8);
+            this.smallIconsPicture.Name = "smallIconsPicture";
+            this.smallIconsPicture.Size = new System.Drawing.Size(21, 20);
+            this.smallIconsPicture.TabIndex = 6;
+            this.smallIconsPicture.TabStop = false;
+            this.smallIconsPicture.Click += new System.EventHandler(this.smallIconsPicture_Click);
+            // 
+            // listPicture
+            // 
+            this.listPicture.Image = ((System.Drawing.Image)(resources.GetObject("listPicture.Image")));
+            this.listPicture.Location = new System.Drawing.Point(206, 8);
+            this.listPicture.Name = "listPicture";
+            this.listPicture.Size = new System.Drawing.Size(25, 20);
+            this.listPicture.TabIndex = 7;
+            this.listPicture.TabStop = false;
+            this.listPicture.Click += new System.EventHandler(this.listPicture_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(334, 471);
+            this.Controls.Add(this.listPicture);
+            this.Controls.Add(this.smallIconsPicture);
             this.Controls.Add(this.canselPrefixBtn);
             this.Controls.Add(this.prefixTextBox);
             this.Controls.Add(this.AddPrefBtn);
@@ -129,6 +157,8 @@
             this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "PrefixAdder";
+            ((System.ComponentModel.ISupportInitialize)(this.smallIconsPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,6 +175,8 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Button canselPrefixBtn;
+        private System.Windows.Forms.PictureBox smallIconsPicture;
+        private System.Windows.Forms.PictureBox listPicture;
     }
 }
 

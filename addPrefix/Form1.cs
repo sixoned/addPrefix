@@ -36,6 +36,7 @@ namespace addPrefix
             for (int i = 0; i < files.Length; i++)
             {
                 ListViewItem folderItem = new ListViewItem();
+                folderItem.Selected = false;
                 folderItem.Text = files[i].Remove(0, files[i].LastIndexOf('\\') + 1);
                 foldreListView.Items.Add(folderItem);
                 foldreListView.Items[i].ImageIndex = 0;
@@ -66,12 +67,33 @@ namespace addPrefix
             checkPrefix(prefixTextBox.Text);
         }
 
+        private void smallIconsPicture_Click(object sender, EventArgs e)
+        {
+            if (foldreListView.Items.Count > 0)
+            {
+                foldreListView.View = View.SmallIcon;
+                smallIconsPicture.BorderStyle = BorderStyle.Fixed3D;
+                listPicture.BorderStyle = BorderStyle.None;
+            }
+        }
+
+        private void listPicture_Click(object sender, EventArgs e)
+        {
+            if (foldreListView.Items.Count > 0)
+            {
+                foldreListView.View = View.List;
+                listPicture.BorderStyle = BorderStyle.Fixed3D;
+                smallIconsPicture.BorderStyle = BorderStyle.None;
+            }
+        }
+
         private void folderBtn_Click(object sender, EventArgs e)
         {
             
             DialogResult result = fbd.ShowDialog();
             if (result == DialogResult.OK)
             {
+                listPicture.BorderStyle = BorderStyle.Fixed3D;
                 AddPrefBtn.Enabled = true;
                 foldreListView.Items.Clear();
                 refreshListView();
