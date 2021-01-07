@@ -31,6 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.foldreListView = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.directoryLabel = new System.Windows.Forms.Label();
             this.folderBtn = new System.Windows.Forms.Button();
@@ -41,22 +44,43 @@
             this.canselPrefixBtn = new System.Windows.Forms.Button();
             this.smallIconsPicture = new System.Windows.Forms.PictureBox();
             this.listPicture = new System.Windows.Forms.PictureBox();
-            this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
             this.plusPrefixBtn = new System.Windows.Forms.Button();
+            this.tableIconPicture = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.smallIconsPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tableIconPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // foldreListView
             // 
+            this.foldreListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
             this.foldreListView.HideSelection = false;
             this.foldreListView.Location = new System.Drawing.Point(12, 63);
             this.foldreListView.Name = "foldreListView";
-            this.foldreListView.Size = new System.Drawing.Size(308, 386);
+            this.foldreListView.Scrollable = false;
+            this.foldreListView.Size = new System.Drawing.Size(314, 386);
             this.foldreListView.SmallImageList = this.imageList1;
             this.foldreListView.TabIndex = 0;
             this.foldreListView.UseCompatibleStateImageBehavior = false;
-            this.foldreListView.View = System.Windows.Forms.View.List;
+            this.foldreListView.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Name";
+            this.columnHeader1.Width = 140;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Created";
+            this.columnHeader2.Width = 84;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Size";
+            this.columnHeader3.Width = 190;
             // 
             // imageList1
             // 
@@ -65,6 +89,7 @@
             this.imageList1.Images.SetKeyName(0, "10.png");
             this.imageList1.Images.SetKeyName(1, "List-PNG-Clipart.png");
             this.imageList1.Images.SetKeyName(2, "smallicons.png");
+            this.imageList1.Images.SetKeyName(3, "table.png");
             // 
             // directoryLabel
             // 
@@ -112,7 +137,7 @@
             // canselPrefixBtn
             // 
             this.canselPrefixBtn.Enabled = false;
-            this.canselPrefixBtn.Location = new System.Drawing.Point(179, 34);
+            this.canselPrefixBtn.Location = new System.Drawing.Point(175, 34);
             this.canselPrefixBtn.Name = "canselPrefixBtn";
             this.canselPrefixBtn.Size = new System.Drawing.Size(25, 23);
             this.canselPrefixBtn.TabIndex = 5;
@@ -124,7 +149,7 @@
             // smallIconsPicture
             // 
             this.smallIconsPicture.Image = ((System.Drawing.Image)(resources.GetObject("smallIconsPicture.Image")));
-            this.smallIconsPicture.Location = new System.Drawing.Point(179, 8);
+            this.smallIconsPicture.Location = new System.Drawing.Point(175, 8);
             this.smallIconsPicture.Name = "smallIconsPicture";
             this.smallIconsPicture.Size = new System.Drawing.Size(21, 20);
             this.smallIconsPicture.TabIndex = 6;
@@ -141,15 +166,6 @@
             this.listPicture.TabStop = false;
             this.listPicture.Click += new System.EventHandler(this.listPicture_Click);
             // 
-            // elementHost1
-            // 
-            this.elementHost1.Location = new System.Drawing.Point(218, 54);
-            this.elementHost1.Name = "elementHost1";
-            this.elementHost1.Size = new System.Drawing.Size(200, 100);
-            this.elementHost1.TabIndex = 8;
-            this.elementHost1.Text = "elementHost1";
-            this.elementHost1.Child = null;
-            // 
             // plusPrefixBtn
             // 
             this.plusPrefixBtn.Enabled = false;
@@ -162,13 +178,23 @@
             this.plusPrefixBtn.UseVisualStyleBackColor = true;
             this.plusPrefixBtn.Click += new System.EventHandler(this.plusPrefixBtn_Click);
             // 
+            // tableIconPicture
+            // 
+            this.tableIconPicture.Image = ((System.Drawing.Image)(resources.GetObject("tableIconPicture.Image")));
+            this.tableIconPicture.Location = new System.Drawing.Point(148, 8);
+            this.tableIconPicture.Name = "tableIconPicture";
+            this.tableIconPicture.Size = new System.Drawing.Size(21, 20);
+            this.tableIconPicture.TabIndex = 11;
+            this.tableIconPicture.TabStop = false;
+            this.tableIconPicture.Click += new System.EventHandler(this.tableIconPicture_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(334, 471);
+            this.ClientSize = new System.Drawing.Size(338, 471);
+            this.Controls.Add(this.tableIconPicture);
             this.Controls.Add(this.plusPrefixBtn);
-            this.Controls.Add(this.elementHost1);
             this.Controls.Add(this.listPicture);
             this.Controls.Add(this.smallIconsPicture);
             this.Controls.Add(this.canselPrefixBtn);
@@ -184,6 +210,7 @@
             this.Text = "PrefixAdder";
             ((System.ComponentModel.ISupportInitialize)(this.smallIconsPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.listPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tableIconPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,8 +229,11 @@
         private System.Windows.Forms.Button canselPrefixBtn;
         private System.Windows.Forms.PictureBox smallIconsPicture;
         private System.Windows.Forms.PictureBox listPicture;
-        private System.Windows.Forms.Integration.ElementHost elementHost1;
         private System.Windows.Forms.Button plusPrefixBtn;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.PictureBox tableIconPicture;
     }
 }
 

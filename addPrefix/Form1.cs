@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.IO;
+using System.Collections.Generic;
 
 namespace addPrefix
 {
    
     public partial class Form1 : Form
     {
+        string[] files, mirrorFiles, cancellNames;  
         public void checkPrefix(string str) {
             if (str.Contains("\\") | str.Contains("/") |
                 str.Contains(":") | str.Contains("*") |
@@ -27,7 +29,7 @@ namespace addPrefix
         }
         void refreshListView() {
 
-
+            List<myFile> myFilesList = new List<myFile>();
             files = Directory.GetFiles(fbd.SelectedPath);
             mirrorFiles = Directory.GetFiles(fbd.SelectedPath);
 
@@ -35,20 +37,26 @@ namespace addPrefix
             directoryLabel.Text = fbd.SelectedPath;
             for (int i = 0; i < files.Length; i++)
             {
-                ListViewItem folderItem = new ListViewItem();
-                folderItem.Selected = false;
-                folderItem.Text = files[i].Remove(0, files[i].LastIndexOf('\\') + 1);
-                foldreListView.Items.Add(folderItem);
+                string fileName = files[i].Remove(0, files[i].LastIndexOf('\\') + 1);
+                string fileCreationDate = File.GetCreationTime(mirrorFiles[i]).ToString();
+                FileInfo file = new System.IO.FileInfo(mirrorFiles[i]);
+                long fileSize = file.Length;
+                
+
+                fileCreationDate =  fileCreationDate.Substring(0, fileCreationDate.LastIndexOf(' '));                         
+                myFilesList.Add(new myFile(fileName, fileCreationDate, commonFunctions.BytesToString(fileSize)));
+              
+                foldreListView.Items.Add(new ListViewItem(new[] { myFilesList[i].fileName,
+                                         myFilesList[i].creationDate ,myFilesList[i].fileSize}));
                 foldreListView.Items[i].ImageIndex = 0;
             }
 
         }
-        string[] files, mirrorFiles, cancellNames;
+        
         public Form1()
         {
             InitializeComponent();
         }
-
         private void canselPrefixBtn_Click(object sender, EventArgs e)
         {
             AddPrefBtn.Enabled = true;
@@ -60,6 +68,7 @@ namespace addPrefix
             }
             foldreListView.Items.Clear();
             refreshListView();
+            prefixTextBox.Text = String.Empty;
         }
 
         private void prefixTextBox_TextChanged(object sender, EventArgs e)
@@ -74,6 +83,7 @@ namespace addPrefix
                 foldreListView.View = View.SmallIcon;
                 smallIconsPicture.BorderStyle = BorderStyle.Fixed3D;
                 listPicture.BorderStyle = BorderStyle.None;
+                tableIconPicture.BorderStyle = BorderStyle.None;
             }
         }
 
@@ -84,6 +94,7 @@ namespace addPrefix
                 foldreListView.View = View.List;
                 listPicture.BorderStyle = BorderStyle.Fixed3D;
                 smallIconsPicture.BorderStyle = BorderStyle.None;
+                tableIconPicture.BorderStyle = BorderStyle.None;
             }
         }
 
@@ -94,13 +105,24 @@ namespace addPrefix
             prefixTextBox.Text = String.Empty;
         }
 
+        private void tableIconPicture_Click(object sender, EventArgs e)
+        {
+            if (foldreListView.Items.Count > 0)
+            {
+                foldreListView.View = View.Details;
+                tableIconPicture.BorderStyle = BorderStyle.Fixed3D;
+                smallIconsPicture.BorderStyle = BorderStyle.None;
+                listPicture.BorderStyle = BorderStyle.None;
+            }
+        }
+
         private void folderBtn_Click(object sender, EventArgs e)
         {
             
             DialogResult result = fbd.ShowDialog();
             if (result == DialogResult.OK)
             {
-                listPicture.BorderStyle = BorderStyle.Fixed3D;
+                tableIconPicture.BorderStyle = BorderStyle.Fixed3D;
                 AddPrefBtn.Enabled = true;
                 foldreListView.Items.Clear();
                 refreshListView();
