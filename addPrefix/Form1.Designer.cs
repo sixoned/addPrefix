@@ -41,6 +41,8 @@
             this.canselPrefixBtn = new System.Windows.Forms.Button();
             this.smallIconsPicture = new System.Windows.Forms.PictureBox();
             this.listPicture = new System.Windows.Forms.PictureBox();
+            this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
+            this.plusPrefixBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.smallIconsPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listPicture)).BeginInit();
             this.SuspendLayout();
@@ -110,7 +112,7 @@
             // canselPrefixBtn
             // 
             this.canselPrefixBtn.Enabled = false;
-            this.canselPrefixBtn.Location = new System.Drawing.Point(206, 34);
+            this.canselPrefixBtn.Location = new System.Drawing.Point(179, 34);
             this.canselPrefixBtn.Name = "canselPrefixBtn";
             this.canselPrefixBtn.Size = new System.Drawing.Size(25, 23);
             this.canselPrefixBtn.TabIndex = 5;
@@ -139,11 +141,34 @@
             this.listPicture.TabStop = false;
             this.listPicture.Click += new System.EventHandler(this.listPicture_Click);
             // 
+            // elementHost1
+            // 
+            this.elementHost1.Location = new System.Drawing.Point(218, 54);
+            this.elementHost1.Name = "elementHost1";
+            this.elementHost1.Size = new System.Drawing.Size(200, 100);
+            this.elementHost1.TabIndex = 8;
+            this.elementHost1.Text = "elementHost1";
+            this.elementHost1.Child = null;
+            // 
+            // plusPrefixBtn
+            // 
+            this.plusPrefixBtn.Enabled = false;
+            this.plusPrefixBtn.Location = new System.Drawing.Point(206, 34);
+            this.plusPrefixBtn.Name = "plusPrefixBtn";
+            this.plusPrefixBtn.Size = new System.Drawing.Size(25, 23);
+            this.plusPrefixBtn.TabIndex = 9;
+            this.plusPrefixBtn.Text = "+";
+            this.plusPrefixBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.plusPrefixBtn.UseVisualStyleBackColor = true;
+            this.plusPrefixBtn.Click += new System.EventHandler(this.plusPrefixBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(334, 471);
+            this.Controls.Add(this.plusPrefixBtn);
+            this.Controls.Add(this.elementHost1);
             this.Controls.Add(this.listPicture);
             this.Controls.Add(this.smallIconsPicture);
             this.Controls.Add(this.canselPrefixBtn);
@@ -177,6 +202,8 @@
         private System.Windows.Forms.Button canselPrefixBtn;
         private System.Windows.Forms.PictureBox smallIconsPicture;
         private System.Windows.Forms.PictureBox listPicture;
+        private System.Windows.Forms.Integration.ElementHost elementHost1;
+        private System.Windows.Forms.Button plusPrefixBtn;
     }
 }
 

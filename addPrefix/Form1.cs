@@ -87,6 +87,13 @@ namespace addPrefix
             }
         }
 
+        private void plusPrefixBtn_Click(object sender, EventArgs e)
+        {
+            AddPrefBtn.Enabled = true;
+            plusPrefixBtn.Enabled = false;
+            prefixTextBox.Text = String.Empty;
+        }
+
         private void folderBtn_Click(object sender, EventArgs e)
         {
             
@@ -105,6 +112,7 @@ namespace addPrefix
         {
             AddPrefBtn.Enabled = false;
             canselPrefixBtn.Enabled = true;
+            plusPrefixBtn.Enabled = true;
             string addingPrefix = prefixTextBox.Text;
             cancellNames = new string[foldreListView.Items.Count];   
             for (int i = 0; i < foldreListView.Items.Count; i++) {
