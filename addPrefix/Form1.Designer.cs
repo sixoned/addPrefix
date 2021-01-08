@@ -60,7 +60,6 @@
             this.foldreListView.HideSelection = false;
             this.foldreListView.Location = new System.Drawing.Point(12, 63);
             this.foldreListView.Name = "foldreListView";
-            this.foldreListView.Scrollable = false;
             this.foldreListView.Size = new System.Drawing.Size(314, 386);
             this.foldreListView.SmallImageList = this.imageList1;
             this.foldreListView.TabIndex = 0;
@@ -208,6 +207,7 @@
             this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "PrefixAdder";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.smallIconsPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.listPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableIconPicture)).EndInit();
