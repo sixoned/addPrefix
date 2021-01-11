@@ -9,7 +9,7 @@ namespace addPrefix
     public partial class Form1 : Form
     {
         string[] files, mirrorFiles, cancellNames;
-        IniFile myIniFile, startIniFile;
+        IniFile startIniFile;
         public void checkPrefix(string str) {
             if (str.Contains("\\") | str.Contains("/") |
                 str.Contains(":") | str.Contains("*") |
@@ -53,13 +53,12 @@ namespace addPrefix
             }
             if (!File.Exists("settings.ini"))
             {
-                myIniFile = new IniFile("settings.ini");
-                myIniFile.Write("Last directory", fbd.SelectedPath);
+                startIniFile = new IniFile("settings.ini");
+                startIniFile.Write("Last directory", fbd.SelectedPath);
             }
-            else {
-                File.Delete("settings.ini");
-                myIniFile = new IniFile("settings.ini");
-                myIniFile.Write("Last directory", fbd.SelectedPath);
+            else {  
+                startIniFile.DeleteKey("Last directory");
+                startIniFile.Write("Last directory", fbd.SelectedPath);
             }
            
         }
