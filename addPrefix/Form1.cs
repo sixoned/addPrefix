@@ -179,6 +179,8 @@ namespace addPrefix
 
         private void AddPrefBtn_Click(object sender, EventArgs e)
         {
+            foldreListView.Items.Clear();  // На случай изменения содержимого папки
+            refreshListView();             // во время работы программы
             AddPrefBtn.Enabled = false;
             canselPrefixBtn.Enabled = true;
             plusPrefixBtn.Enabled = true;
